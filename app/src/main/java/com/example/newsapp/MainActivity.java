@@ -106,9 +106,10 @@ public class MainActivity extends AppCompatActivity implements  SelectListener, 
 
     @Override
     public void OnNewsClicked(NewsHeadlines headlines) {
-        startActivity(new Intent(MainActivity.this,Details_Activity.class)
-                .putExtra("data",headlines));
-
+        String nurl= headlines.getUrl();
+        Intent intent = new Intent(getApplicationContext(),webView.class);
+        intent.putExtra("url",nurl);
+        startActivity(intent);
     }
 
     @Override

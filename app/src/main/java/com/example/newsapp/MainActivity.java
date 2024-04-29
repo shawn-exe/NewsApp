@@ -4,121 +4,121 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import androidx.appcompat.widget.SearchView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.newsapp.CustomAdapter;
 import com.example.newsapp.Models.NewsApiResponse;
 import com.example.newsapp.Models.NewsHeadlines;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements  SelectListener, View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements SelectListener, View.OnClickListener {
 
     RecyclerView recyclerView;
     CustomAdapter adapter;
     ProgressDialog dialog;
 
-    Button b1,b2,b3,b4,b5,b6,b7;
-
     SearchView searchView;
+
+    TabLayout tabLayout;
+     // Change the name from Sports to sportsTabItem
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchView=findViewById(R.id.search_view);
+        searchView = findViewById(R.id.search_view);
+
+        dialog = new ProgressDialog(this);
+        dialog.setTitle("Loading...");
+
+        tabLayout = findViewById(R.id.include);
+       // Change to your actual TabItem ID
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                String category = tab.getText().toString();
+                dialog.show();
+                RequestManager manager = new RequestManager(MainActivity.this);
+                manager.getNewsHeadlines(listener, category.toLowerCase(), null);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                // Not needed for your implementation
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                // Not needed for your implementation
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                dialog.setTitle("Loading...");
                 dialog.show();
-                RequestManager manager=new RequestManager(MainActivity.this);
-                manager.getNewsHeadlines(listener,"general",query);
+                RequestManager manager = new RequestManager(MainActivity.this);
+                manager.getNewsHeadlines(listener, "general", query);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                // Not needed for your implementation
                 return false;
             }
         });
 
-        dialog=new ProgressDialog(this);
-        dialog.setTitle("Loding...");
-        dialog.show();
-
-        b1 = findViewById(R.id.btn_1);
-        b1.setOnClickListener(this);
-        b2 = findViewById(R.id.btn_2);
-        b2.setOnClickListener(this);
-        b3 = findViewById(R.id.btn_3);
-        b3.setOnClickListener(this);
-        b4 = findViewById(R.id.btn_4);
-        b4.setOnClickListener(this);
-        b5 = findViewById(R.id.btn_5);
-        b5.setOnClickListener(this);
-        b6 = findViewById(R.id.btn_6);
-        b6.setOnClickListener(this);
-        b7 = findViewById(R.id.btn_7);
-        b7.setOnClickListener(this);
-
-
-        RequestManager manager=new RequestManager(this);
-        manager.getNewsHeadlines(listener,"general",null);
+        RequestManager manager = new RequestManager(this);
+        manager.getNewsHeadlines(listener, "general", null);
     }
 
-    private final OnFetchDataListener<NewsApiResponse> listener =new OnFetchDataListener<NewsApiResponse>() {
+    private final OnFetchDataListener<NewsApiResponse> listener = new OnFetchDataListener<NewsApiResponse>() {
         @Override
         public void onFetchData(List<NewsHeadlines> list, String message) {
             if (list.isEmpty()) {
                 Toast.makeText(MainActivity.this, "No news found!!", Toast.LENGTH_SHORT).show();
-
             } else {
                 showNews(list);
-                dialog.dismiss();
             }
+            dialog.dismiss();
         }
 
         @Override
         public void onError(String message) {
             Toast.makeText(MainActivity.this, "An Error occurred", Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
         }
     };
 
     private void showNews(List<NewsHeadlines> list) {
         recyclerView = findViewById(R.id.recycler_main);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this ,1));
-        adapter=new CustomAdapter(this, list,this);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        adapter = new CustomAdapter(this, list, this);
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void OnNewsClicked(NewsHeadlines headlines) {
-        String nurl= headlines.getUrl();
-        Intent intent = new Intent(getApplicationContext(),webView.class);
-        intent.putExtra("url",nurl);
+        String nurl = headlines.getUrl();
+        Intent intent = new Intent(getApplicationContext(), webView.class);
+        intent.putExtra("url", nurl);
         startActivity(intent);
     }
 
     @Override
     public void onClick(View v) {
-        Button button =(Button) v;
-        String category = button.getText().toString();
-        dialog.setTitle("Loading...");
-        dialog.show();
-        RequestManager manager=new RequestManager(this);
-        manager.getNewsHeadlines(listener,category,null);
+        // Not needed for your implementation since you are using TabLayout
     }
 }

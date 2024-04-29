@@ -7,97 +7,101 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    
-    <HorizontalScrollView
+
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp">
-        
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@color/white"
+        android:id="@+id/toolbar">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            
-            <Button
-                android:id="@+id/btn_1"
-                android:text="business"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            <Button
-                android:id="@+id/btn_2"
-                android:text="entertainment"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            <Button
-                android:id="@+id/btn_3"
-                android:text="general"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            <Button
-                android:id="@+id/btn_4"
-                android:text="health"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            <Button
-                android:id="@+id/btn_5"
-                android:text="science"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            <Button
-                android:id="@+id/btn_6"
-                android:text="sports"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            <Button
-                android:id="@+id/btn_7"
-                android:text="technology"
-                android:textSize="12sp"
-                android:padding="6dp"
-                android:layout_margin="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-            
+                android:layout_height="wrap_content"
+                android:text="SamaChaar"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#03A9F4">
+            </TextView>
         </LinearLayout>
-        
-    </HorizontalScrollView>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/include"
+        android:layout_below="@+id/toolbar"
+        app:tabTextColor="#618C8F"
+        app:tabSelectedTextColor="#03A9F4"
+        app:tabIndicatorColor="#03A9F4"
+        app:tabIndicatorHeight="3.5dp"
+        app:tabMode="scrollable"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/white">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="general"
+            android:id="@+id/home">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sports"
+            android:id="@+id/sports">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health"
+            android:id="@+id/health">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Science"
+            android:id="@+id/science">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entertainment"
+            android:id="@+id/entertainment">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technology"
+            android:id="@+id/technology">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="business"
+            android:id="@+id/business">
+
+        </com.google.android.material.tabs.TabItem>
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="SamaChaar"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="#03A9F4">
             </TextView>
         </LinearLayout>
@@ -100,14 +101,12 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-
-
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        app:cardElevation="8dp">
+        android:layout_margin="1dp"
+        app:cardElevation="-1dp"
+        app:cardBackgroundColor="@android:color/transparent">
 
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"
@@ -115,7 +114,6 @@
             app:defaultQueryHint="search news.."
             app:iconifiedByDefault="false"
             android:layout_height="?attr/actionBarSize">
-
         </androidx.appcompat.widget.SearchView>
 
     </androidx.cardview.widget.CardView>

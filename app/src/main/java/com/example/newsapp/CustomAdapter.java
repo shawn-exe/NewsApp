@@ -37,6 +37,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
         holder.text_title.setText(headlines.get(position).getTitle());
         holder.text_source.setText(headlines.get(position).getSource().getName());
+        holder.content.setText(headlines.get(position).getDescription());
+        holder.time.setText(headlines.get(position).getPublishedAt());
         if(headlines.get(position).getUrlToImage()!=null)
         {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);

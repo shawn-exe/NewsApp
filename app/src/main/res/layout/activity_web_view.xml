@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="12dp"
         android:background="@color/white"
         android:id="@+id/toolbar">
         <RelativeLayout
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:text="SamaChaar"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="#03A9F4">
             </TextView>
         </RelativeLayout>

@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomViewHolder extends RecyclerView.ViewHolder {
 
-    TextView text_title, text_source;
+    TextView text_title, text_source,content,time;
     ImageView img_headline;
     CardView cardview;
     public CustomViewHolder(@NonNull View itemView) {
         super(itemView);
         text_title = itemView.findViewById(R.id.text_title);
+        content= itemView.findViewById(R.id.content);
+        time=itemView.findViewById(R.id.time);
         text_source = itemView.findViewById(R.id.text_source);
 
         img_headline=itemView.findViewById(R.id.img_headline);

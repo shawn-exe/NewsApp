@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Favourite button clicked");
+                Intent intent = new Intent(MainActivity.this, Favourite.class);
+                startActivity(intent);
             }
         });
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

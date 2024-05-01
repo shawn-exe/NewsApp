@@ -52,7 +52,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         } else {
             holder.heart.setImageResource(R.drawable.heart);
         }
-//        System.out.println(headlines.get(position));
         if(headlines.get(position).getUrlToImage()!=null)
         {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
@@ -67,7 +66,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
                     if(!isFavorite(headlines.get(position).getTitle())) {
 
 
-                        db.execSQL("INSERT into fav values('" + headlines.get(position) + "','" + headlines.get(position).getTitle() + "')");
+                        db.execSQL("INSERT into fav values('" + headlines.get(position).getTitle() + "','"+headlines.get(position).getSource().getName()+"','"+headlines.get(position).getPublishedAt()+"','"+headlines.get(position).getUrl()+"','"+headlines.get(position).getUrlToImage()+"','"+headlines.get(position).getContent()+"','"+headlines.get(position).getAuthor()+"')");
 
 
                         holder.heart.setImageResource(R.drawable.save);
@@ -100,7 +99,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     }
     private boolean isFavorite(String news) {
         SQLiteDatabase db = context.openOrCreateDatabase("favourites", MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS fav(position varchar(100),title varchar(100) primary key)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS fav(title varchar(100) primary key,source varchar(100),publishedAt timestamp,url varchar(500),urlToImage varchar(500),content varchar(50),author varchar(20))");
         Cursor cursor = db.rawQuery("SELECT * FROM fav WHERE title = ?", new String[]{news});
         boolean isFavorite = cursor.getCount() > 0;
         cursor.close();

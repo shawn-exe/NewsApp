@@ -14,4 +14,6 @@
     <string name="main_content">main content</string>
     <string name="by_shawn">By Shawn</string>
     <string name="published_at">published at</string>
+    <string name="favourites">Favourites</string>
+    <string name="heart_png">heart.png</string>
 </resources>

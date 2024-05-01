@@ -2,9 +2,12 @@ package com.example.newsapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.widget.SearchView;
+
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
     TabLayout tabLayout;
      // Change the name from Sports to sportsTabItem
-
+    ImageView favourite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +44,16 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         dialog.setTitle("Loading...");
 
         tabLayout = findViewById(R.id.include);
+        favourite = findViewById(R.id.favourite);
        // Change to your actual TabItem ID
 
+        favourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Favourite.class);
+                startActivity(intent);
+            }
+        });
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

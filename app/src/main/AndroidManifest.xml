@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NewsApp"
         tools:targetApi="31">
         <activity
+            android:name=".Favourite"
+            android:exported="false" />
+        <activity
             android:name=".webView"
             android:exported="false" />
         <activity

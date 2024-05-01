@@ -42,7 +42,8 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/heart" />
+                app:srcCompat="@drawable/heart"
+                android:contentDescription="@string/heart_png" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,44 +64,44 @@
             </TextView>
 
 
-        <ImageView
-            android:id="@+id/img_headline"
-            android:layout_weight="1"
-            android:src="@drawable/nf"
-            android:scaleType="centerCrop"
-            android:padding="5dp"
-            app:cardCornerRadius="10dp"
+            <ImageView
+                android:id="@+id/img_headline"
+                android:layout_weight="1"
+                android:src="@drawable/nf"
+                android:scaleType="centerCrop"
+                android:padding="5dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ImageView>
+
+
+        </LinearLayout>
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ImageView>
+            android:layout_height="match_parent"
+            android:text="@string/by_shawn"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/text_source"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            >
 
+        </TextView>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/time"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:text="@string/published_at"
+            android:textStyle="italic"
+            android:textSize="12sp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/by_shawn"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:id="@+id/text_source"
-        android:textColor="@color/black"
-        android:padding="5dp"
-        >
-
-    </TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/time"
-        android:padding="5dp"
-        android:textColor="@color/black"
-        android:text="@string/published_at"
-        android:textStyle="italic"
-        android:textSize="12sp">
-
-    </TextView>
+        </TextView>
 
 
     </LinearLayout>

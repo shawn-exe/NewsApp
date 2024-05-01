@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="VisualLintBounds,VisualLintTextFieldSize">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -19,14 +20,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SamaChaar"
-                android:textStyle="bold"
+                android:layout_width="294dp"
+                android:layout_height="46dp"
+                android:text="@string/samachaar"
+                android:textColor="#039BE5"
                 android:textSize="25sp"
-                android:textColor="#03A9F4">
-            </TextView>
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/favourite"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/favourite"
+                app:srcCompat="@drawable/heart" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -46,7 +55,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="general"
+            android:text="@string/general"
             android:id="@+id/home">
 
         </com.google.android.material.tabs.TabItem>
@@ -54,7 +63,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sports"
+            android:text="@string/sports"
             android:id="@+id/sports">
 
         </com.google.android.material.tabs.TabItem>
@@ -62,7 +71,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health"
+            android:text="@string/health"
             android:id="@+id/health">
 
         </com.google.android.material.tabs.TabItem>
@@ -70,7 +79,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Science"
+            android:text="@string/science"
             android:id="@+id/science">
 
         </com.google.android.material.tabs.TabItem>
@@ -78,7 +87,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Entertainment"
+            android:text="@string/entertainment"
             android:id="@+id/entertainment">
 
         </com.google.android.material.tabs.TabItem>
@@ -86,7 +95,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Technology"
+            android:text="@string/technology"
             android:id="@+id/technology">
 
         </com.google.android.material.tabs.TabItem>
@@ -94,7 +103,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="business"
+            android:text="@string/business"
             android:id="@+id/business">
 
         </com.google.android.material.tabs.TabItem>
@@ -122,8 +131,6 @@
         android:id="@+id/recycler_main"
         android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">NewsApp</string>
     <string name="api_key">351f04ff78a348c3a190db329a961727</string>
+    <string name="samachaar">SamaChaar</string>
+    <string name="general">general</string>
+    <string name="sports">sports</string>
+    <string name="health">Health</string>
+    <string name="science">Science</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="technology">Technology</string>
+    <string name="business">business</string>
+    <string name="favourite">favourite</string>
+    <string name="main_heading">Main heading</string>
+    <string name="main_content">main content</string>
+    <string name="by_shawn">By Shawn</string>
+    <string name="published_at">published at</string>
 </resources>

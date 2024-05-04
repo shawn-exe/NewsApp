@@ -47,6 +47,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.text_source.setText(headlines.get(position).getSource().getName());
         holder.content.setText(headlines.get(position).getDescription());
         holder.time.setText(headlines.get(position).getPublishedAt());
+
         if (isFavorite(headlines.get(position).getTitle())) {
             holder.heart.setImageResource(R.drawable.save);
         } else {
